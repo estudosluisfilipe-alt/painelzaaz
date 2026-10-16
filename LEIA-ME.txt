@@ -1,0 +1,14 @@
+PAINEL DE OS - INSTALACAO NO XAMPP
+1) Copie a pasta "painel" para C:\xampp\htdocs\  (fica C:\xampp\htdocs\painel)
+2) Os administradores ficam em config.php (senhas como hash). Para trocar uma senha: no CMD, rode C:\xampp\php\php.exe gerar_hash.php "nova senha" e cole o hash no config.php.
+3) No XAMPP Control Panel, inicie o Apache.
+4) Neste computador: http://localhost/painel/
+   Para a equipe: http://IP-DO-SERVIDOR/painel/  (descubra o IP com "ipconfig"; use IP fixo para o servidor).
+   Se a equipe nao conseguir abrir, libere a porta 80 no Firewall do Windows.
+5) Admin: clique em "acesso admin", entre, e use "Atualizar base" para subir o Excel.
+   A base vale para todos assim que o envio terminar. Os demais usuarios so visualizam.
+6) php.ini (C:\xampp\php\php.ini): post_max_size=64M e memory_limit=256M; reinicie o Apache.
+Observacoes:
+- Cada envio guarda copia da base anterior em data\ (ultimas 5).
+- Na rede interna o login trafega sem criptografia (HTTP). Nao exponha na internet sem HTTPS/VPN.
+- Os dados (inclui nome de cliente) ficam em data\base.json, legiveis por quem acessa o painel. CPF/telefone nao sao guardados.
